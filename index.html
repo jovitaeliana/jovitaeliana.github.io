@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jovita Eliana</title>
+    <link rel="stylesheet" href="css/color.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul class="nav-list">
+                <li><a href="#home">About Me</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content scroll-element">
+                <h1 class="hero-title">Jovita Eliana Djoyohadikusumo</h1>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <h3 class="about-content scroll-element">Sophomore Computer Science student at Singapore University of Technology and Design (SUTD), studying under the ASEAN Undergraduate Scholarship</h3>
+            <div class="about-content">
+                <div class="about-text scroll-element">
+                    <p>With a growing foundation in Python, HTML, CSS, and JavaScript, I am passionate about exploring how artificial intelligence can transform public services 
+                        in developing nations. My research experience at the Lee Kuan Yew Centre for Innovative Cities has strengthened my interest in using AI to detect patterns 
+                        of resource distribution and improve public fund allocation. Through my journey at SUTD, I aim to develop the technical skills needed to build AI-powered 
+                        systems that can identify inefficiencies in public services and detect unusual transaction patterns. I am particularly interested in developing machine 
+                        learning models that can analyze large-scale government spending data to promote transparency and efficient resource distribution in developing countries.</p>
+                </div>
+                <div class="about-image-container scroll-element">
+                    <img src="images/profile.JPG" alt="Jovita Eliana" class="about-image">
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <h2 class="section-title scroll-element">My Projects</h2>
+            <div class="project-grid">
+                <div class="project-card scroll-element">
+                    <a href="https://jovitaeliana.github.io/funvita-website/" target="_blank" class="project-card scroll-element">
+                        <h3 class="project-title" class = "project-image">Funvita</h3>
+                        <p class="project-description"> Visit Funvita Indonesia</p>
+                    </a>
+                </div>
+                <div class="project-card scroll-element">
+                <a href="https://jovitaeliana.github.io/math-drill/" target="_blank" class="project-card scroll-element">
+                    <h3 class="project-label">Math Minute</h3>
+                    <img src="images/MathDrill.png" class="project-image">
+                </a>
+                    <p class="project-description">Developed an interactive educational web application using HTML5, CSS3, and 
+                        vanilla JavaScript that dynamically generates and validates arithmetic problems across multiple difficulty levels. 
+                        The project implements modern front-end architecture through state management, event-driven programming, and 
+                        responsive design, while utilizing JavaScript concepts including DOM manipulation, custom event handling, and 
+                        modular question generation algorithms. 
+                        <br> Key features include real-time input validation, asynchronous UI updates, 
+                        intuitive progress tracking, and keyboard navigation, all built using object-oriented principles and modern development 
+                        practices to create a clean, maintainable application with engaging user experience.
+                        <br> <br> <a href="https://github.com/jovitaeliana/math-drill" target="_blank">GitHub Repository</a>
+                    </p>
+                </div>
+                
+                    
+                
+
+                <article class="project-card scroll-element">
+                    <h3 class="project-title">Project 3</h3>
+                    <p class="project-description">Description of your project goes here.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2 class="section-title scroll-element">I'd love to have a chat</h2>
+            <form class="contact-form scroll-element">
+                <div class="form-group">
+                    <input type="text" class="form-input" placeholder="Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-input" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-input" placeholder="Message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Jovita Eliana Djoyohadikusumo SUTD.</p>
+        <div class="social-icons"></div>
+        <a href="https://www.instagram.com/jo.vitaaa/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/jovita-eliana-djoyohadikusumo" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:jovita.djoyohadikusumo@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+        </div>
+        </footer>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Projects Carousel
+        document.addEventListener('DOMContentLoaded', () => {
+            const carousel = document.querySelector('.project-grid');
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+        
+            const handleMouseDown = (e) => {
+                isDown = true;
+                startX = e.pageX - carousel.offsetLeft;
+                scrollLeft = carousel.scrollLeft;
+            };
+        
+            const handleMouseLeave = () => isDown = false;
+            const handleMouseUp = () => isDown = false;
+        
+            const handleMouseMove = (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - carousel.offsetLeft;
+                const walk = (x - startX) * 2;
+                carousel.scrollLeft = scrollLeft - walk;
+            };
+        
+            const handleTouchStart = (e) => {
+                isDown = true;
+                startX = e.touches[0].pageX - carousel.offsetLeft;
+                scrollLeft = carousel.scrollLeft;
+            };
+        
+            const handleTouchEnd = () => isDown = false;
+        
+            const handleTouchMove = (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.touches[0].pageX - carousel.offsetLeft;
+                const walk = (x - startX) * 2;
+                carousel.scrollLeft = scrollLeft - walk;
+            };
+        
+            // Mouse Events
+            carousel.addEventListener('mousedown', handleMouseDown);
+            carousel.addEventListener('mouseleave', handleMouseLeave);
+            carousel.addEventListener('mouseup', handleMouseUp);
+            carousel.addEventListener('mousemove', handleMouseMove);
+        
+            // Touch Events
+            carousel.addEventListener('touchstart', handleTouchStart);
+            carousel.addEventListener('touchend', handleTouchEnd);
+            carousel.addEventListener('touchmove', handleTouchMove);
+        });
+
+        // Intersection Observer for scroll animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.5 // Adjusted threshold for later animation
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    } else {
+                        entry.target.classList.remove('visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.scroll-element').forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
