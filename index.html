@@ -203,5 +203,18 @@
             });
         });
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.project-card').forEach(card => {
+                const link = card.querySelector('.project-card-link');
+                if (link) {
+                    card.style.cursor = 'pointer';
+                    card.addEventListener('click', () => {
+                        window.location.href = link.href;
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
