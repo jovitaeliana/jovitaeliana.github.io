@@ -1,32 +1,32 @@
 :root {
     /* Base Colors */
-    --void-black: #0A0A0F;
+    --void-black:rgb(25, 25, 41);
     --deep-space: #12121D;
     --nebula-gray: #1A1A2E;
     --stellar-gray: #2D2D44;
-    --stellar-gray-transparent:rgba(55, 55, 82, 0.2);
+    --stellar-gray-transparent:rgba(98, 98, 122, 0.34);
     
     /* Accent Colors */
-    --cyber-teal: #00F3FF;
-    --neon-magenta: #FF00FF;
-    --quantum-purple: #8A2BE2;
+    --blue: #00F3FF;
+    --pink: #FF00FF;
+    --purple: #8A2BE2;
     
     /* Text Colors */
-    --star-light: #E0E0FF;
-    --moon-dust: #B0B0D0;
+    --white:rgb(237, 237, 251);
+    --grey:rgb(191, 191, 215);
     
     /* Gradients */
     --main-gradient: linear-gradient(
         135deg,
         var(--void-black) 0%,
-        var(--deep-space) 100%
+        var(--stellar-gray) 100%
     );
     
     --accent-gradient: linear-gradient(
         45deg,
-        var(--quantum-purple),
-        var(--neon-magenta),
-        var(--cyber-teal)
+        var(--purple),
+        var(--pink),
+        var(--blue)
     );
 
     --button-bg: rgba(255, 255, 255, 0.15);      /* Lighter base color */

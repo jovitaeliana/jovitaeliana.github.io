@@ -12,7 +12,7 @@ html {
 
 body {
     font-family: 'Inter', system-ui, sans-serif;
-    color: var(--star-light);
+    color: var(--white);
     line-height: 1.7;
     position: relative;
     overflow-x: hidden;
@@ -31,12 +31,12 @@ body::before {
         var(--void-black),
         var(--deep-space),
         var(--nebula-gray),
-        var(--deep-space),
-        var(--void-black)
+        var(--stellar-gray)
     );
     background-size: 400% 400%;
     z-index: -1;
-    animation: gradientFlow 15s ease infinite;
+    animation: gradientFlow 10s ease infinite;
+
 }
 
 /* Keyframes */
@@ -88,7 +88,7 @@ body::before {
 }
 
 .nav-list a {
-    color: var(--star-light);
+    color: var(--white);
     text-decoration: none;
     font-weight: 500;
     padding: 0.75rem 1.5rem;
@@ -187,7 +187,8 @@ body::before {
 }
 
 .about-image {
-    width: 100%;
+    width: auto;
+    max-height:300px;
     border-radius: 15px;
     transition: transform 0.3s ease;
 }
@@ -238,9 +239,8 @@ body::before {
 }
 
 .project-card {
-    background: rgba(255, 255, 255, 0.02);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    pointer-events: auto;
+    background: rgba(255, 255, 255, 0.02); 
     border-radius: 20px;
     padding: 0;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -249,8 +249,7 @@ body::before {
     text-decoration: none;
     display: block;
     height: 300px;
-    position: relative;
-    overflow: hidden; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .project-card::before .project-label {
@@ -279,19 +278,20 @@ body::before {
     height: 100%;
     background: rgba(0, 0, 0, 0); /* No darkness initially */
     transition: background 0.3s ease;
-    z-index: 1; /* Place the overlay above the image */
 }
 
 
 .project-card:hover::after{
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 7px 14px rgba(138, 43, 226, 0.1), 0 3px 7px rgba(0, 0, 0, 0.1);
     background: rgba(0, 0, 0, 0.4);
+    
 }
 
 .project-card:hover .project-image {
     filter: blur(5px);
     transform: scale(1.05); /* Slightly scale the image for effect */
     transition: filter 0.3s ease, transform 0.3s ease;
+    pointer-events: auto;
 }
 
 
@@ -299,9 +299,6 @@ body::before {
     opacity: 1;
     transition: transform 0.3s ease, opacity 0.3s ease;
     transform: translateY(0);
-    z-index: 2;
-    
-    
 }
 
 .project-card:hover: .project-label {
@@ -309,31 +306,41 @@ body::before {
     transform: translateY(-20px);
 }
 
-.project-title {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--star-light);
-    position: relative;
-    animation: fadeInUp 1s ease-out;
-}
+
 
 .project-description {
+    padding: 1rem;
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    padding: 1rem;
-    color: var(--star-light);
     text-align: center;
     text-align: justify; 
     font-size: 1rem;
     opacity: 0; /* Hide the description initially */
     transition: opacity 0.3s ease, transform 0.3s ease;
     transform: translateY(100%); /* Initially hidden below */
-    z-index: 2; /* Ensure the description is above other elements */
+    z-index: 1; /* Ensure the description is above other elements */
     overflow-y: auto; 
+    pointer-events: auto;
+    text-decoration: none;
+    
 }
+.project-description a{
+    color: var(--white);
+    text-decoration:none;
+    
+}
+
+.project-card-link h3, 
+.project-card-link p, 
+.project-card-link a{
+    color: var(--white);
+    text-decoration:none;
+    
+}
+
 
 
 .project-image {
@@ -358,15 +365,12 @@ body::before {
     left: 0;
     width: 100%;
     background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     color: white;
     text-align: center;
     font-size: 1.5rem;
     transition: background 0.5s ease;
     
 }
-
 /* Contact Section */
 .contact {
     padding: 8rem 2rem;
@@ -395,7 +399,7 @@ body::before {
     -webkit-backdrop-filter: blur(8px);
     border: none;
     border-radius: 12px;
-    color: var(--star-light);
+    color: var(--white);
     font-size: 1rem;
     transition: all 0.3s ease;
 }
@@ -410,9 +414,11 @@ textarea.form-input {
     min-height: 150px;
 }
 
+
+
 .submit-btn {
     background: rgba(255, 255, 255, 0.05);
-    color: var(--star-light);
+    color: var(--white);
     padding: 1rem 2.5rem;
     border: none;
     border-radius: 12px;
@@ -430,12 +436,36 @@ textarea.form-input {
 
 /* Footer */
 .footer {
-    text-align: center;
-    padding: 3rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 2rem;
     color: var(--moon-dust);
-    background: rgba(26, 26, 46, 0.4);
+    background: var(--stellar-gray-transparent);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+}
+
+.footer p {
+    margin: 0;
+    flex: 1;
+}
+
+.footer a {
+    color: var(--white);
+    display: inline-block;
+    margin-left: 1rem;
+    transition: color 0.3s ease;
+}
+
+.footer a i {
+    width: 24px; 
+    height: 24px; 
+    transition: transform 0.3s ease;
+}
+
+.footer a:hover i {
+    transform: scale(1.5); 
 }
 
 /* Scroll Animations */
@@ -481,11 +511,68 @@ textarea.form-input {
 }
 
 .social-icon {
-    color: var(--star-light);
+    color: var(--grey);
     font-size: 1.5rem;
     transition: color 0.3s ease;
 }
 
 .social-icon:hover {
-    color: var(--accent-color);
+    color: var(--white);
 }
+
+
+@media (max-width: 700px) {
+    .about-image {
+        display: none; /* Make the profile image smaller */
+    }
+    .navbar {
+        padding: 1rem;
+    }
+
+    .nav-list {
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .nav-list a {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+    }
+
+    .hero-title {
+        font-size: 6vw;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .about-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .project-card {
+        height: auto;
+        padding: 1rem;
+    }
+
+    .project-description {
+        position: static;
+        transform: none;
+        opacity: 1;
+        height: auto;
+    }
+
+    .project-card-link h3,
+    .project-card-link p,
+    .project-card-link a {
+        font-size: 1rem;
+    }
+}
+
