@@ -1,0 +1,105 @@
+:root {
+    /* Common variables */
+    --transition-speed: 0.3s;
+    --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+    --border-radius-sm: 8px;
+    --border-radius-md: 12px;
+    --border-radius-lg: 20px;
+    --box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    
+    /* Accent colors (shared between themes) */
+    --blue:rgb(71, 168, 173);
+    --pink: #FF00FF;
+    --purple: #8A2BE2;
+    --accent-gradient: linear-gradient(45deg, var(--purple), var(--pink), var(--blue));
+}
+
+/* Light Theme */
+:root:not(.dark) {
+    /* Base colors */
+    --bg-primary: #f8f9fa;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #f1f3f5;
+    
+    /* Text colors */
+    --text-primary: #212529;
+    --text-secondary: #495057;
+    --text-muted: #6c757d;
+    
+    /* UI elements */
+    --card-bg: rgba(255, 255, 255, 0.8);
+    --card-border: rgba(0, 0, 0, 0.1);
+    --input-bg: rgba(255, 255, 255, 0.9);
+    --button-bg: rgba(0, 0, 0, 0.05);
+    --button-hover: rgba(0, 0, 0, 0.1);
+    --navbar-bg: rgba(255, 255, 255, 0.85);
+    
+    /* Shadows and effects */
+    --shadow-color: rgba(0, 0, 0, 0.05);
+    --shadow-hover: rgba(0, 0, 0, 0.15);
+    --overlay-bg: rgba(255, 255, 255, 0.75);
+    
+    /* Gradients */
+    --main-gradient: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    --parallax-gradient: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+}
+
+/* Dark Theme */
+.dark {
+    /* Base colors */
+    --bg-primary: #12121D;
+    --bg-secondary: #1A1A2E;
+    --bg-tertiary: #2D2D44;
+    
+    /* Text colors */
+    --text-primary: #f8f9fa;
+    --text-secondary: #e9ecef;
+    --text-muted: #adb5bd;
+    
+    /* UI elements */
+    --card-bg: rgba(42, 42, 68, 0.7);
+    --card-border: rgba(255, 255, 255, 0.05);
+    --input-bg: rgba(42, 42, 68, 0.6);
+    --button-bg: rgba(255, 255, 255, 0.15);
+    --button-hover: rgba(255, 255, 255, 0.22);
+    --navbar-bg: rgba(26, 26, 46, 0.85);
+    
+    /* Shadows and effects */
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --shadow-hover: rgba(138, 43, 226, 0.3);
+    --overlay-bg: rgba(18, 18, 29, 0.75);
+    
+    /* Gradients */
+    --main-gradient: linear-gradient(135deg, #12121D 0%, #2D2D44 100%);
+    --parallax-gradient: linear-gradient(135deg, #1A1A2E 0%, #2D2D44 100%);
+}
+
+/* Color Theme Toggle Button */
+#theme-toggle {
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-speed) var(--transition-timing);
+}
+
+#theme-toggle:hover {
+    background: var(--button-hover);
+    transform: rotate(15deg);
+}
+
+.dark #theme-toggle .fa-sun,
+:root:not(.dark) #theme-toggle .fa-moon {
+    display: block;
+}
+
+.dark #theme-toggle .fa-moon,
+:root:not(.dark) #theme-toggle .fa-sun {
+    display: none;
+}
